@@ -20,10 +20,15 @@ gzip [New Calendar1].csv
 
 In the folder "pig" there are two files, order.pig and filter.pig. This two files are pig files used to clean the previous file. 
 To use them we upload the pig folder and the [New Calendar1].csv.gz file to the server. Then we upload the [New Calendar1].csv.gz file to the distributed file system (hdfs). Now, we change the file loaded in "filter.pig" so now it has the path to [New Calendar1].csv.gz in the hdfs. Now we use the following command:
-
+'''
 pig filter.pig
+'''
+Now the result file will be saved in the hdfs (we will call it [New Calendar2]). Now we do the same for "order.pig", we update the file by changing the LOAD file so now it has the path to the file [New Calendar2]. Then we execute the following command:
 
-Now the result file will be saved in the hdfs (we will call it [New Calendar2]). Now we do the same for "order.pig", we upload the files to 
+pig order.pig
+
+This will give us a new file named 
+
 # Upload listings.csv to mongoDB
 
 
