@@ -18,7 +18,7 @@ gzip -d calendar.csv.gz
 tail -n +2 calendar.csv > [New Calendar1].csv
 gzip [New Calendar1].csv
 
-In the folder "pig" there are two files, order.pig and filter.pig. This two files are pig files used to clean the previous file. 
+In the folder [pig](./pig) there are two files, order.pig and filter.pig. This two files are pig files used to clean the previous file. 
 To use them we upload the pig folder and the [New Calendar1].csv.gz file to the server. Then we upload the [New Calendar1].csv.gz file to the distributed file system (hdfs). Now, we change the file loaded in "filter.pig" so now it has the path to [New Calendar1].csv.gz in the hdfs. Now we use the following command:
 
 ```
