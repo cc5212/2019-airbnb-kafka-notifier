@@ -10,13 +10,14 @@ The dataset we get it from the page http://insideairbnb.com/get-the-data.html. F
 
 # Methods
 
-So for the technologies we used are the following: Pig, Python+Pandas,MongoDB and Kafka. We used Pig to clean and order by date the file calendars.csv.gz. Python with Pandas, we used to make the Json file from the listings.csv so we can load that file to MongoDB. The most important of this its Kafka. With this we simulated the cleaned calendars.csv.gz file, so it produces this in a Kafka topic. This simulation is made with the file [AirbnbSimulator](./src/org/mdp/kafka/AirbnbSimulator)
+So for the technologies we used are the following: Pig, Python+Pandas,MongoDB and Kafka. We used Pig to clean and order by date the file calendars.csv.gz. Python with Pandas, we used to make the Json file from the listings.csv so we can load that file to MongoDB. The most important of this its Kafka. With this we simulated the cleaned calendars.csv.gz file, so it produces this in a Kafka topic. This simulation is made with the file [AirbnbSimulator](./src/org/mdp/kafka/cli/AirbnbSimulator.java). In the file [AirbnbFilter](./src/org/mdp/kafka/cli/AirbnbFilter.java)we make a filter for this topic, so it puts in another topic, the lodgings that have change their status from not available to available, so with another file  [AirbnbClient](./src/org/mdp/kafka/cli/AirbnbClient.java) it will suscrbe to this topic and it will be "notified" of a new available logding. The MongoDB is used here so the AirbnbFilter can have the actual status of the lodging and the AirbnbClient can have some information about the lodging. 
 
 # Results
 
 The results you can try it yourself! The instructions on how to run this project are down below. 
 
 # Conclusion
+
 
 
 # Instructions how to run
