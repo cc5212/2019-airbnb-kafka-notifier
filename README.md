@@ -6,7 +6,7 @@ This proyect simulates a notifier for Airbnb using Kafka. To do this, we create 
 
 # Instructions how to run
 
-There are two options to run this project. The first option are the file in the data folder named calendarFinal.csv and the files that are already uploaded to mongoDB. This database used are from Santiago de Chile. In the second one, you can use the database from the city you want from http://insideairbnb.com/get-the-data.html. The problem is that in this case you have to clean the files yourself and upload the file to mongoDB also.
+There are two options to run this project. The first option are the file in the [data](./data) folder named calendarFinal.csv and the files that are already uploaded to mongoDB. This database used are from Santiago de Chile. In the second one, you can use the database from the city you want from http://insideairbnb.com/get-the-data.html. The problem is that in this case you have to clean the files yourself and upload the file to mongoDB also.
 
 # OPTION 1
 
@@ -25,7 +25,7 @@ Now we have to create 2 Kafka topics in the server:
 
 /data/hadoop/kafka/2.11-2.0.0/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic airbnb-client
 ```
-The airbnb-producer topic will have the rows of the file [New Calendar3].
+The airbnb-producer topic will have the rows of the file calendarFinal.csv.
 
 The airbnb-client topic will have the rows filtered of the file [New Calendar3]. It will have the rows that have changed their availability from false to true.
 
