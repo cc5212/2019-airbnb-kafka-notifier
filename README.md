@@ -17,8 +17,9 @@ So for the technologies we used are the following: Pig, Python+Pandas,MongoDB an
 The results you can try it yourself! The instructions on how to run this project are down below. 
 
 # Conclusion
-
-
+The most difficult part it was the cleaning of the files. We think it was the most tedious and boring part, because there were always a case we miss. 
+Also we could have made the cleaning a bit more efficiently if we used Apache Spark instead of Pig, because we know how efficient its pig (its not very good :c) 
+In the future we would like to make a visualization of this simulation, utilizing some sort of map like google maps, because we have the information of latitude and longitude of the lodgins. So with this, we can show in a more interactive way the status of the lodgings.
 
 # Instructions how to run
 
