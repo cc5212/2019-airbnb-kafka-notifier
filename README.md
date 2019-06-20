@@ -77,7 +77,7 @@ This will give us a new file we call it [New Calendar3]. We move it from the hdf
 
 ## Upload listings.csv to mongoDB
 
-First we convert the listings.csv into a json file using the file [./filter/to_json.py]to_json.py. 
+First we convert the listings.csv into a json file using the file [to_json.py](./filter/to_json.py). 
 
 The new file created is listings.json.
 
