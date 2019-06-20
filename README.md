@@ -1,8 +1,23 @@
 # 2019-airbnb-kafka-notifier
 Process airbnb lodgings in real time using Kafka. Pablo Arancibia Nicolás Escudero, Emilio Lizama Group : 1
 
-# Description
+# Overview
 This proyect simulates a notifier for Airbnb using Kafka. To do this, we create 2 topics in Kafka, in one (named airbnb-producer) we are going to produce the status of the lodgings in Airbnb (with their price at that moment, and if it is available for renting or not) simulated in real time (ordered by dates). In the other one (airbnb-client), we are going to filter the values from airbnb-producer, and put the status of lodgings that have change their values of available from false to true. With this topic, the client subscribed, will be notified for new available lodgings, and will filter which ones they want.
+
+# Data
+
+The dataset we get it from the page http://insideairbnb.com/get-the-data.html. From here we used the files from the city Santiago de Chile, the files listings.csv and calendar.csv.gz. listings.csv contains a summary of the information of available lodgings in Santiago (this information is the minimun nights in the lodging, a short description, the neighborhood where it is, the latitude and longitude of the lodging, etc.). calendar.csv.gz contains the status of the lodging daily. This status contains the price in that day (price may vary between one day and another), if its available for renting that day or not, etc. The file calendars.csv.gz contains  5.759.010 rows and its size compressed is 13,7MB and the file listings.csv contains 29.777 rows and its size is 2,1MB. The data from this city was choosed because it felt more familiar to use the data from a city we all lived. Also, the good thing of this project, is that we can use the data from any other city, because all the cities have the same files! In the end, there is a section named "Instructions how to run", where we explain how to use another the data from another city instead. 
+
+# Methods
+
+So for the technologies we used are the following: Pig, Python+Pandas,MongoDB and Kafka. We used Pig to clean and order by date the file calendars.csv.gz. Python with Pandas, we used to make the Json file from the listings.csv so we can load that file to MongoDB. The most important of this its Kafka. With this we simulated the cleaned calendars.csv.gz file, so it produces this in a Kafka topic. This simulation is made with the file [AirbnbSimulator](./src/org/mdp/kafka/AirbnbSimulator)
+
+# Results
+
+The results you can try it yourself! The instructions on how to run this project are down below. 
+
+# Conclusion
+
 
 # Instructions how to run
 
