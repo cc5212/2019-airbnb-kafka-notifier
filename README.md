@@ -10,16 +10,17 @@ The dataset we get it from the page http://insideairbnb.com/get-the-data.html. F
 
 # Methods
 
-So for the technologies we used are the following: Pig, Python+Pandas,MongoDB and Kafka. We used Pig to clean and order by date the file calendars.csv.gz. Python with Pandas, we used to make the Json file from the listings.csv so we can load that file to MongoDB. The most important of this its Kafka. With this we simulated the cleaned calendars.csv.gz file, so it produces this in a Kafka topic. This simulation is made with the file [AirbnbSimulator](./src/org/mdp/kafka/cli/AirbnbSimulator.java). In the file [AirbnbFilter](./src/org/mdp/kafka/cli/AirbnbFilter.java)we make a filter for this topic, so it puts in another topic, the lodgings that have change their status from not available to available, so with another file  [AirbnbClient](./src/org/mdp/kafka/cli/AirbnbClient.java) it will suscrbe to this topic and it will be "notified" of a new available logding. The MongoDB is used here so the AirbnbFilter can have the actual status of the lodging and the AirbnbClient can have some information about the lodging. 
+So for the technologies we used are the following: Pig, Python+Pandas,MongoDB and Kafka. We used Pig to clean and order by date the file calendars.csv.gz. Python with Pandas, we used to make the Json file from the listings.csv so we can load that file to MongoDB. The most important of this its Kafka. With this we simulated the cleaned calendars.csv.gz file, so it produces this in a Kafka topic. This simulation is made with the file [AirbnbSimulator](./src/org/mdp/kafka/cli/AirbnbSimulator.java). In the file [AirbnbFilter](./src/org/mdp/kafka/cli/AirbnbFilter.java) we make a filter for this topic, so it puts in another topic, the lodgings that have change their status from not available to available, so with another file  [AirbnbClient](./src/org/mdp/kafka/cli/AirbnbClient.java) it will suscrbe to this topic and it will be "notified" of a new available logding. The MongoDB is used here so the AirbnbFilter can have the actual status of the lodging and the AirbnbClient can have some information about the lodging. 
 
 # Results
 
-The results you can try it yourself! The instructions on how to run this project are down below. 
+The results you can try it yourself! The instructions on how to run this project are down below.
+If you followed the instruccions below, what you will se in the shell were you run the AirbnbClient, are information about the lodgings that are available and that they fulfill with the maximum price you established (it will only show the lodgings that are below this maximum price). The information it shows is the date were it became available, the neighbourhood, minimum nights, room type, host name and the price in that date. 
 
 # Conclusion
 The most difficult part it was the cleaning of the files. We think it was the most tedious and boring part, because there were always a case we miss. 
 Also we could have made the cleaning a bit more efficiently if we used Apache Spark instead of Pig, because we know how efficient its pig (its not very good :c) 
-In the future we would like to make a visualization of this simulation, utilizing some sort of map like google maps, because we have the information of latitude and longitude of the lodgins. So with this, we can show in a more interactive way the status of the lodgings.
+In the future we would like to make a visualization of this simulation, utilizing some sort of map like google maps, because we have the information of latitude and longitude of the lodgins. So with this, we can show in a more interactive way the status of the lodgings. Also we would like to put more filters for the client, so its not only the maximum price, for example in which they neighborhood they want to stay, or the room type. 
 
 # Instructions how to run
 
